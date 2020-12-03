@@ -8,7 +8,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI
+      - docker build -t $REPOSITORY_URI:latest
   post_build:
     commands:
       - echo Build completed on `date`
