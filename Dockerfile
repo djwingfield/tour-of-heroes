@@ -7,6 +7,6 @@ COPY . .
 RUN ng build
 
 ### STAGE 2: Run ###
-FROM nginx:1.17.1-alpine
+FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/tour-of-heroes /usr/share/nginx/html
