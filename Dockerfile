@@ -4,7 +4,6 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN ng test --watch=false
 RUN ng build
 
 ### STAGE 2: Run ###
