@@ -11,4 +11,6 @@ blocks:
         - name: docker build
           commands:
             - checkout
-            - docker login -u $SEMAPHORE_REGISTRY_USERNAME -p $SEMAPHORE_REGISTRY_PASSWORD $SEMAPHORE_REGISTRY_URL
+            - 'docker pull djwingfield/tour-of-heroes:latest || true'
+            - 'docker build --cache-from djwingfield/tour-of-heroes:latest -t djwingfield/tour-of-heroes:$SEMAPHORE_WORKFLOW_ID .'
+            - 'docker push djwingfield/tour-of-heroes:$SEMAPHORE_WORKFLOW_ID'
