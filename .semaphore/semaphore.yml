@@ -11,6 +11,7 @@ blocks:
         - name: docker build
           commands:
             - checkout
-            - 'docker pull djwingfield/tour-of-heroes:latest || true'
-            - 'docker build --cache-from djwingfield/tour-of-heroes:latest -t djwingfield/tour-of-heroes:$SEMAPHORE_WORKFLOW_ID .'
+            - 'docker pull djwingfield/tour-of-heroes:latest'
+            - docker build -t tour-of-heroes .
+            - 'docker tag djwingfield/tour-of-heroes:latest djwingfield/tour-of-heroes:$SEMAPHORE_WORKFLOW_ID'
             - 'docker push djwingfield/tour-of-heroes:$SEMAPHORE_WORKFLOW_ID'
